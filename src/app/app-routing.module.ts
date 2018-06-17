@@ -4,13 +4,10 @@ import {
   HomeComponent,
   RootComponent,
   RootaddComponent,
-  RootlistComponent,
   SuffixComponent,
   SuffixaddComponent,
-  SuffixlistComponent,
   StopwordComponent,
   StopwordaddComponent,
-  StopwordlistComponent
 } from './components/components';
 
 const routes: Routes = [
@@ -22,38 +19,23 @@ const routes: Routes = [
   },
   {
     path: 'root', component: RootComponent,
-    children: [
-      {
-        path: '', component: RootlistComponent,
         children: [
           { path: 'add', component: RootaddComponent }
         ]
-      },
-    ]
   },
   {
     path: 'suffix', component: SuffixComponent,
-    children: [
-      {
-        path: '', component: SuffixlistComponent,
         children: [
           { path: 'add', component: SuffixaddComponent }
         ]
-      },
-    ]
   },
   {
     path: 'stopword', component: StopwordComponent,
-    children: [
-      {
-        path: '', component: StopwordlistComponent,
         children: [
           { path: 'add', component: StopwordaddComponent }
         ]
       },
       { path: '', component: StopwordComponent },
-    ]
-  }
   // { path: '**', component: NotFoundComponent}
 ];
 

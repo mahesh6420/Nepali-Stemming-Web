@@ -3,9 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-suffix',
   templateUrl: './suffix.component.html',
-  styleUrls: ['./suffix.component.sass']
+  styleUrls: ['./suffix.component.scss']
 })
 export class SuffixComponent implements OnInit {
+
+  title: any = 'Suffix';
 
   constructor() { }
 
@@ -13,3 +15,4 @@ export class SuffixComponent implements OnInit {
   }
 
 }
+
