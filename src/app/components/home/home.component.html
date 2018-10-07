@@ -1,5 +1,97 @@
-<div class="page">
-  <div class="page_title">
-    {{title}}
-  </div>
+<div id="form">
+  <form [formGroup]="myForm" (submit)="onSubmit()" name="form" class="stem_form" novalidate>
+    <mat-form-field class="stem_text_area">
+      <textarea matInput formControlName="inputText" placeholder="Enter Nepali Text Here" name="inputtext" required></textarea>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary" primary>Stem</button>
+  </form>
 </div>
+<mat-spinner *ngIf="spinner"></mat-spinner>
+
+<br>
+
+<div id="result" *ngIf="pyResult">
+  <mat-card>
+      <mat-chip-list>
+          <mat-chip color="primary">Start Time : {{startTime}}</mat-chip>
+          <mat-chip color="primary" >End Time : {{endTime}}</mat-chip>
+        </mat-chip-list>
+  </mat-card>
+  <!-- <table class="table table-striped" [mfData]="finalResult" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+      <tr>
+          <th style="width: 20%">
+              <mfDefaultSorter by="POS_Tag">POS Tag</mfDefaultSorter>
+          </th>
+          <th style="width: 50%">
+              <mfDefaultSorter by="Word">Word</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+              <mfDefaultSorter by="Root">Root</mfDefaultSorter>
+          </th>
+          <th style="width: 20%">
+              <mfDefaultSorter by="Suffix">Suffix</mfDefaultSorter>
+          </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of mf.data">
+          <td>
+            <tr *ngFor="let tag of [item.POS_Tag]">
+              {{tag}}
+            </tr>
+          </td>
+          <td>{{item.Word}}</td>
+          <td class="text-right">{{item.Root}}</td>
+          <td>{{item.Suffix}}</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+          <td colspan="4">
+              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+          </td>
+      </tr>
+      </tfoot>
+  </table> -->
+</div>
+
+<div *ngIf="pyResult" [innerHTML]="pyResult"></div>
+<!--
+<table class="table table-striped" [mfData]="finalResult" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+        <th style="width: 20%">
+            <mfDefaultSorter by="POS_Tag">POS Tag</mfDefaultSorter>
+        </th>
+        <th style="width: 50%">
+            <mfDefaultSorter by="Word">Word</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="Root">Root</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="Suffix">Suffix</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>
+          <tr *ngFor="let tag of [item.POS_Tag]">
+            {{tag | json}}
+          </tr>
+        </td>
+        <td>{{item.Word}}</td>
+        <td class="text-right">{{item.Root}}</td>
+        <td>{{item.Suffix}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table> -->

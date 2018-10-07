@@ -1,13 +1,12 @@
-export { HomeComponent } from '../components/home/home.component';
+export { HomeComponent } from './home/home.component';
 
-export { RootComponent } from '../components/root/root.component';
-export { RootaddComponent } from '../components/root/rootadd/rootadd.component';
-export { RootlistComponent } from '../components/root/rootlist/rootlist.component';
+export { RootComponent } from './root/root.component';
+export { RootaddComponent } from './root/rootadd/rootadd.component';
 
-export { SuffixComponent } from '../components/suffix/suffix.component';
-export { SuffixaddComponent } from '../components/suffix/suffixadd/suffixadd.component';
-export { SuffixlistComponent } from '../components/suffix/suffixlist/suffixlist.component';
+export { SuffixComponent } from './suffix/suffix.component';
+export { SuffixaddComponent } from './suffix/suffixadd/suffixadd.component';
 
-export { StopwordComponent } from '../components/stopword/stopword.component';
-export { StopwordaddComponent } from '../components/stopword/stopwordadd/stopwordadd.component';
-export { StopwordlistComponent } from '../components/stopword/stopwordlist/stopwordlist.component';
+export { StopwordComponent } from './stopword/stopword.component';
+export { StopwordaddComponent } from './stopword/stopwordadd/stopwordadd.component';
+
+export { DataTableComponent } from './data-table/data-table.component';

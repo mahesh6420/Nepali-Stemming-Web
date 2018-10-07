@@ -8,19 +8,23 @@ import { ApiserviceService } from '../../services/services';
 })
 export class RootComponent implements OnInit {
   title: any = 'Root';
+  public displayedColumns = ['id', 'rootName'];
   public roots: any;
+
   constructor(private _rootService: ApiserviceService) {
   }
 
   ngOnInit() {
-    this.setAllRoots();
-    console.log(this.roots);
-    this.roots = this.roots.map(function (root) {
-    });
+    this.getAllRoots();
   }
 
-  setAllRoots() {
+  getAllRoots() {
     this._rootService.getAllRoots()
-      .subscribe(data => this.roots = data);
+      .subscribe(data => {
+        this.roots = data.map(function (root) {
+          return root;
+        });
+      });
+
   }
 }

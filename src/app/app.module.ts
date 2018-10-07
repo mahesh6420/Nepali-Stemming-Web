@@ -8,13 +8,11 @@ import {
   HomeComponent,
   RootComponent,
   RootaddComponent,
-  RootlistComponent,
   SuffixComponent,
   SuffixaddComponent,
-  SuffixlistComponent,
   StopwordComponent,
   StopwordaddComponent,
-  StopwordlistComponent
+  DataTableComponent
 } from './components/components';
 import { NavbarComponent } from './shared/shared';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -26,10 +24,17 @@ import {
   MatListModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatInputModule,
+  MatGridListModule,
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatChipsModule
 } from '@angular/material';
 import { ApiserviceService } from './services/services';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormBuilder, Validators, FormsModule } from '@angular/forms';
+import {DataTableModule} from 'angular-6-datatable';
 
 @NgModule({
   declarations: [
@@ -37,14 +42,12 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     RootComponent,
     RootaddComponent,
-    RootlistComponent,
     SuffixComponent,
     SuffixaddComponent,
-    SuffixlistComponent,
     StopwordComponent,
     StopwordaddComponent,
-    StopwordlistComponent,
     NavbarComponent,
+    DataTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatInputModule,
+    MatGridListModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatChipsModule,
+    DataTableModule
   ],
   providers: [ApiserviceService],
   bootstrap: [AppComponent]

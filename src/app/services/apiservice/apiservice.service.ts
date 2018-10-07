@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Root } from '../../models/Root';
+import { Suffix } from '../../models/Suffix';
+import { StopWord } from '../../models/StopWord';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -19,7 +21,14 @@ export class ApiserviceService {
 
   getAllRoots(): Observable<Root[]> {
     const roots = this.http.get<Root[]>(this.api.root);
-
     return roots;
+  }
+  getAllSuffixes(): Observable<Suffix[]> {
+    const suffixes = this.http.get<Suffix[]>(this.api.suffix);
+    return suffixes;
+  }
+  getAllStopWords(): Observable<StopWord[]> {
+    const stopWords = this.http.get<StopWord[]>(this.api.stopword);
+    return stopWords;
   }
 }

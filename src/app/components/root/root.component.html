@@ -1,14 +1,27 @@
-<div class="page">
-  <div class="page_title">
-    {{title}}
-  </div>
 
-  <app-root-list [data] = "roots"></app-root-list>
-  <!-- <ul class="">
-    <li *ngFor="let root of roots">
-      <span class="badge">{{root.id}}</span> {{root.rootName}}
-    </li>
-  </ul> -->
+ <ng-container *ngIf="!roots">
+    <mat-card>
+        <mat-chip>No data available</mat-chip>
+    </mat-card>
+ </ng-container>
 
+  <ng-container *ngIf="roots">
 
-</div>
+    <mat-card>
+    <table class="striped centered highlight">
+      <thead>
+        <tr>
+            <th>Id</th>
+            <th>Root</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let root of roots">
+          <td>{{root.id}}</td>
+          <td>{{root.rootName}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+  </ng-container>

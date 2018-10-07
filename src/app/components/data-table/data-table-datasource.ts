@@ -2,24 +2,18 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Root } from '../../../models/Root';
-import { Input, OnInit } from '@angular/core';
-import { ApiserviceService } from '../../../services/services';
+import { FinalResult } from '../../models/FinalResult';
 
 /**
- * Data source for the List view. This class should
+ * Data source for the DataTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class RootlistDataSource extends DataSource<Root> {
+export class DataTableDataSource extends DataSource<FinalResult> {
+  data: FinalResult[] = this.finalData;
 
-  data: any;
-
-  constructor(private paginator: MatPaginator, private sort: MatSort, private roots) {
+  constructor(private paginator: MatPaginator, private sort: MatSort, private finalData: any) {
     super();
-
-    this.data = roots;
-    console.log(this.data);
   }
 
   /**
@@ -27,7 +21,7 @@ export class RootlistDataSource extends DataSource<Root> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<Root[]> {
+  connect(): Observable<FinalResult[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -54,7 +48,7 @@ export class RootlistDataSource extends DataSource<Root> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: Root[]) {
+  private getPagedData(data: FinalResult[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -63,7 +57,7 @@ export class RootlistDataSource extends DataSource<Root> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: Root[]) {
+  private getSortedData(data: FinalResult[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
@@ -71,8 +65,10 @@ export class RootlistDataSource extends DataSource<Root> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'name': return compare(a.rootName, b.rootName, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'POS_Tag': return compare(a.POS_Tag, b.POS_Tag, isAsc);
+        case 'Word': return compare(a.POS_Tag, b.POS_Tag, isAsc);
+        case 'Root': return compare(a.POS_Tag, b.POS_Tag, isAsc);
+        case 'Suffix': return compare(a.POS_Tag, b.POS_Tag, isAsc);
         default: return 0;
       }
     });
